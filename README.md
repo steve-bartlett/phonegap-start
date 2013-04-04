@@ -1,6 +1,6 @@
 # Hello World PhoneGap Application
 
-> A Hello World application built with PhoneGap
+> Steve's application built with PhoneGap
 
 ## PhoneGap Build
 
