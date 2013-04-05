@@ -22,13 +22,14 @@ var app = {
     },
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
+        document.addEventListener("online", onOnline, false);
+        document.addEventListener("offline", onOffline, false);
     },
     deviceready: function() {
         // This is an event handler function, which means the scope is the event.
         // So, we must explicitly called `app.report()` instead of `this.report()`.
         app.report('deviceready');
-        window.location="https://ola.avon.com.au";
-    },
+     },
     report: function(id) {
         // Report the event in the console
         console.log("Report: " + id);
@@ -39,5 +40,24 @@ var app = {
         document.querySelector('#' + id + ' .pending').className += ' hide';
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
-    }
+        window.location="https://ola.avon.com.au";
+    },
+    onOnline: function() {
+		navigator.notification.alert(
+		            'You are Online!',  // message
+		            alertDismissed,         // callback
+		            'Game On',            // title
+		            'Done'                  // buttonName
+		        );
+    },
+    onOffline: function() {
+		navigator.notification.alert(
+		            'You are Offline!',  // message
+		            alertDismissed,         // callback
+		            'Game Over',            // title
+		            'Done'                  // buttonName
+		        );
+    },
+    alertDismissed: function() {
+	}
 };
