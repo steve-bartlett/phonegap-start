@@ -22,9 +22,20 @@
         document.addEventListener("offline", onOffline, false);
     }
 
+    function alertDismissed() {
+        // do something
+    }
+
     // Handle the offline event
     //
     function onOffline() {
+            navigator.notification.alert(
+	            'You are the winner!',  // message
+	            alertDismissed,         // callback
+	            'Game Over',            // title
+	            'Done'                  // buttonName
+	        );
+
     }
 
     </script>
