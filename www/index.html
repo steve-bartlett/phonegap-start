@@ -24,21 +24,33 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
-        document.addEventListener("offline", onOffline, false);
-		document.addEventListener("online", onOnline, false);
+        var networkState = navigator.connection.type;
 
-        navigator.notification.alert('Ready to go!',  alertDismissed, 'Game Starts', 'Done'  );
-    }
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
 
-    // Handle the offline event
-    //
-    function onOffline() {
-        navigator.notification.alert('Wait you are offline!',  alertDismissed, 'Game Over', 'Done'  );
+        alert('Connection type: ' + states[networkState]);
+		if(networkState == Connection.NONE)
+		{
+		   navigator.notification.alert('No connectivity!',  alertDismissed, 'Game Starts', 'Done'  );
+		}
+		else
+		{
+        	navigator.notification.alert('Ready to go!',  alertDismissed, 'Game Starts', 'Done'  );
+        	document.location = "http://ola.avon.com.au/test";
+        }
     }
 
 	function onOnline() {
     	// Handle the online event
 	    navigator.notification.alert('You are Online!',  alertDismissed, 'Game On', 'Done'  );
+	    document.location = "http://ola.avon.com.au/test";
 	}
 
     </script>
@@ -47,7 +59,6 @@
   		<div data-role="page" data-theme="a" id="start"  >
   			<a href="http://ola.avon.com.au/test" data-role="button" data-icon="star">Star button</a>
 
-  			<a href="http://ola.avon.com.au/gap/index.html" data-role="button" data-icon="star">Load page with phonegap from server</a>
   		</div>
   </body>
 </html>
