@@ -47,7 +47,6 @@ var app = {
 		            'Game On',            // title
 		            'Done'                  // buttonName
 		        );
-     //   window.location="http://ola.avon.com.au/test";
     },
     onOnline: function() {
 		navigator.notification.alert(
