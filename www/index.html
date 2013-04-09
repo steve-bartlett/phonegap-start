@@ -3,7 +3,8 @@
   <head>
     <title>Cordova Offline Example</title>
 
-    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+
     <script type="text/javascript" charset="utf-8">
 
     // Call onDeviceReady when Cordova is loaded.
@@ -16,46 +17,29 @@
         document.addEventListener("deviceready", onDeviceReady, false);
     }
 
+    function alertDismissed() {
+        // do something
+    }
+
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
         document.addEventListener("offline", onOffline, false);
 		document.addEventListener("online", onOnline, false);
 
-                    navigator.notification.alert(
-			            'Ready to go!',  // message
-			            alertDismissed,         // callback
-			            'Game Over',            // title
-			            'Done'                  // buttonName
-	        );
-
-    }
-
-    function alertDismissed() {
-        // do something
+        navigator.notification.alert('Ready to go!',  alertDismissed, 'Game Over', 'Done'  );
     }
 
     // Handle the offline event
     //
     function onOffline() {
-            navigator.notification.alert(
-	            'You are offline!',  // message
-	            alertDismissed,         // callback
-	            'Game Over',            // title
-	            'Done'                  // buttonName
-	        );
+        navigator.notification.alert('Wait you are offline!',  alertDismissed, 'Game Over', 'Done'  );
     }
 
 	function onOnline() {
     	// Handle the online event
-	            navigator.notification.alert(
-		            'You are online!',  // message
-		            alertDismissed,         // callback
-		            'Game Over',            // title
-		            'Done'                  // buttonName
-	        );
+	    navigator.notification.alert('You are Online!',  alertDismissed, 'Game Over', 'Done'  );
 	}
-
 
     </script>
   </head>
