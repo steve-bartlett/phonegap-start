@@ -1,41 +1,34 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notification Example</title>
+    <title>Cordova Offline Example</title>
 
-    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    // Wait for Cordova to load
+    // Call onDeviceReady when Cordova is loaded.
     //
-    document.addEventListener("deviceready", onDeviceReady, false);
+    // At this point, the document has loaded but cordova-2.5.0.js has not.
+    // When Cordova is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
 
-    // Cordova is ready
+    // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
-        // Empty
+        document.addEventListener("offline", onOffline, false);
     }
 
-    // alert dialog dismissed
-    function alertDismissed() {
-        // do something
-    }
-
-    // Show a custom alertDismissed
+    // Handle the offline event
     //
-    function showAlert() {
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            alertDismissed,         // callback
-            'Game Over',            // title
-            'Done'                  // buttonName
-        );
+    function onOffline() {
     }
 
     </script>
   </head>
-  <body>
-    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+  <body onload="onLoad()">
   </body>
 </html>
