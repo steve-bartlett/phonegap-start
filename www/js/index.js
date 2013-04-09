@@ -41,7 +41,13 @@ var app = {
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
 
-        window.location="http://ola.avon.com.au/test";
+		navigator.notification.alert(
+		            'You are Ready to go!',  // message
+		            alertDismissed,         // callback
+		            'Game On',            // title
+		            'Done'                  // buttonName
+		        );
+     //   window.location="http://ola.avon.com.au/test";
     },
     onOnline: function() {
 		navigator.notification.alert(
