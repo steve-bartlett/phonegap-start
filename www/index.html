@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <link href="css/jquery.mobile.structure-1.3.0.css" rel="stylesheet"/>
+     <link href="css/avon_mobile.css" rel="stylesheet"/>
+
     <title>Cordova Offline Example</title>
 
     <script type="text/javascript" src="phonegap.js"></script>
@@ -41,6 +44,8 @@
     </script>
   </head>
   <body onload="onLoad()">
-  		<a href="http://ola.avon.com.au/test" data-role="button" data-icon="star">Star button</a>
+  		<div data-role="page" data-theme="a" id="start"  >
+  			<a href="http://ola.avon.com.au/test" data-role="button" data-icon="star">Star button</a>
+  		</div>
   </body>
 </html>
