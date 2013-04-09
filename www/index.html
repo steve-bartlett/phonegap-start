@@ -20,6 +20,15 @@
     //
     function onDeviceReady() {
         document.addEventListener("offline", onOffline, false);
+		document.addEventListener("online", onOnline, false);
+
+                    navigator.notification.alert(
+			            'Ready to go!',  // message
+			            alertDismissed,         // callback
+			            'Game Over',            // title
+			            'Done'                  // buttonName
+	        );
+
     }
 
     function alertDismissed() {
@@ -30,13 +39,23 @@
     //
     function onOffline() {
             navigator.notification.alert(
-	            'You are the winner!',  // message
+	            'You are offline!',  // message
 	            alertDismissed,         // callback
 	            'Game Over',            // title
 	            'Done'                  // buttonName
 	        );
-
     }
+
+	function onOnline() {
+    	// Handle the online event
+	            navigator.notification.alert(
+		            'You are online!',  // message
+		            alertDismissed,         // callback
+		            'Game Over',            // title
+		            'Done'                  // buttonName
+	        );
+	}
+
 
     </script>
   </head>
