@@ -24,6 +24,8 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
+	   document.addEventListener("online", onOnline, false);
+
         var networkState = navigator.connection.type;
 
         var states = {};
@@ -38,7 +40,7 @@
         alert('Connection type: ' + states[networkState]);
 		if(networkState == Connection.NONE)
 		{
-		   navigator.notification.alert('No connectivity!',  alertDismissed, 'Game Starts', 'Done'  );
+		   navigator.notification.alert('No connectivity!',  alertDismissed, 'No connectivity', 'Done'  );
 		}
 		else
 		{
