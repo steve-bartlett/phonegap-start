@@ -44,6 +44,19 @@
 	    window.location="https://ola.avon.com.au/";
 	}
 
+	function isConnected() {
+		if (navigator.connection == null) {
+			return;
+		}
+		var networkState = navigator.connection.type;
+
+		if (networkState == Connection.NONE) {
+			navigator.notification.alert('No connectivity!', alertDismissed, 'No connectivity', 'Done');
+		}
+		else {
+			window.location="https://ola.avon.com.au/";
+		}
+	}
     </script>
   </head>
   <body onload="onLoad()">
@@ -53,7 +66,7 @@
 		                <div style="background-color:#ED1E79; height:5px" ></div>
             </div>
             <H2>You are currently Offline</h2>
-  			<a href="https://ola.avon.com.au/" data-role="button" data-icon="star">Check Status</a>
+  			<button onclick="isConnected()" id="retry">Check Status</button>
   		</div>
   </body>
 </html>
