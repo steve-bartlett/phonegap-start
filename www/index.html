@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="js/jquery.mobile-1.3.0.min.js"></script>
 
     <script type="text/javascript" charset="utf-8">
+	var startURL = "https://ola.avon.com.au/Login";
 
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -28,11 +29,10 @@
 
         var networkState = navigator.connection.type;
 
-
 		if(networkState == Connection.NONE)
 		{
-		   $('#start h2').show();
-		   navigator.notification.alert('You are not connected to the internet!',  alertDismissed, 'No connectivity', 'Done'  );
+		   $('#start startBody').show();
+		   navigator.notification.alert('You are currently Offline!',  alertDismissed, 'No connectivity', 'Done'  );
 		}
 		else
 		{
@@ -42,7 +42,8 @@
 
 	function onOnline() {
     	// Handle the online event
-	    window.location="https://ola.avon.com.au/Login";
+    	$.mobile.loading('show');
+	    window.location = startURL;
 	}
 
 	function isConnected() {
@@ -55,7 +56,8 @@
 			navigator.notification.alert('No connectivity!', alertDismissed, 'No connectivity', 'Done');
 		}
 		else {
-			window.location="https://ola.avon.com.au/Login";
+		    $.mobile.loading('show');
+			window.location = startURL;
 		}
 	}
     </script>
@@ -66,8 +68,10 @@
 		                <h1>Online Appointments</h1>
 		                <div style="background-color:#ED1E79; height:5px" ></div>
             </div>
-            <h2 style="display:none" >You are currently Offline</h2>
-  			<button onclick="isConnected()" id="retry">Check Status</button>
+            <div id="startBody" style="display:none" >
+              <h2>You are currently Offline</h2>
+  			  <button onclick="isConnected()" id="retry">Check Status</button>
+  			</div>
   		</div>
   </body>
 </html>
