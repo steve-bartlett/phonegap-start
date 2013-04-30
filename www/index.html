@@ -7,59 +7,13 @@
     <title>Cordova Offline Example</title>
     <meta name="viewport" content="width=device-width" />
     <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/myphonegap.js"></script>
 
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.mobile-1.3.0.min.js"></script>
 
     <script type="text/javascript" charset="utf-8">
 
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-
-    function alertDismissed() {
-        // do something
-    }
-
-    function startingApp() {
-    	$.mobile.loading('show');
-	    window.location = "https://ola.avon.com.au/Login";;
-    }
-
-    // Cordova is loaded and it is now safe to make calls Cordova methods
-    function onDeviceReady() {
-	   document.addEventListener("online", onOnline, false);
-
-        var networkState = navigator.connection.type;
-
-		if(networkState == Connection.NONE)
-		{
-		   $('#startBody').show();
-		   navigator.notification.alert('You are currently Offline!',  alertDismissed, 'No connectivity', 'Done'  );
-		}
-		else
-		{
-			startingApp();
-        }
-    }
-
-	function onOnline() {
-		startingApp();
-	}
-
-	function isConnected() {
-		if (navigator.connection == null) {
-			return;
-		}
-		var networkState = navigator.connection.type;
-
-		if (networkState == Connection.NONE) {
-			navigator.notification.alert('You are currently Offline!', alertDismissed, 'No connectivity', 'Done');
-		}
-		else {
-		    startingApp();
-		}
-	}
     </script>
   </head>
   <body onload="onLoad()">
@@ -68,10 +22,12 @@
 		                <h1>Online Appointments</h1>
 		                <div style="background-color:#ED1E79; height:5px" ></div>
             </div>
-            <div id="startBody" style="display:none" >
-              <h2>You are currently Offline</h2>
-  			  <button onclick="isConnected()" id="retry">Check Status</button>
-  			</div>
+
+			<div data-role="popup" id="goneOffline" >
+				<h2>You are currently offline</h2>
+				<button onclick="isConnected()" id="retry">Check Status</button>
+            </div>
+
   		</div>
   </body>
 </html>
