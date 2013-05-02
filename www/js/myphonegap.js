@@ -30,8 +30,8 @@ function isConnected() {
 	var networkState = navigator.connection.type;
 
 	if (networkState == Connection.NONE) {
-		$.mobile.pageLoadErrorMessage = "You are currently Offline";
 		$("#goneOffline").popup("open", "dismissible", false);
+		$.mobile.pageLoadErrorMessage = "You are currently Offline";
 	}
 	else {
 		startingApp();
