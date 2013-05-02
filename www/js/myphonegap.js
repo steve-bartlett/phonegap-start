@@ -23,6 +23,24 @@ function startingApp() {
 	window.location = "https://ola.avon.com.au/Login";;
 }
 
+
+function checkConnected()
+{
+		if (navigator.connection == null) {
+			return;
+		}
+		var networkState = navigator.connection.type;
+
+		if ( networkState == Connection.NONE)
+		{
+        	navigator.notification.alert('You are Still Offline',
+            	alertDismissed,  'Offline', 'Done');
+		}
+		else {
+			startingApp();
+		}
+}
+
 function isConnected() {
 	if (navigator.connection == null) {
 		return;
