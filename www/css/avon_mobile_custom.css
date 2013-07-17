@@ -1,0 +1,52 @@
+﻿/* MVC3 errors
+-----------------------------------------------------------------------------------------------------------*/
+
+
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.ui-icon-green_tick {
+	background-image: url("images/app-icon-green_tick.png");
+}
+
+/* Override the value of the datebox */
+.ui-icon-datebox {
+    background-position: 99% 8px !important;
+    background-repeat: no-repeat !important;
+}
+
+/* General customisations */
+input#Packs1, input#Packs2
+{
+    width: 80px;
+}
+
+.ui-autocomplete-loading { background:url('images/ajax-loader-mini.gif') no-repeat right center }
+
+.bold {
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+#spacer {
+    height: 20px;
+}
