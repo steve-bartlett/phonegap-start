@@ -79,6 +79,6 @@ input#Packs1, input#Packs2
     }
 }
 
-.ui-page, .ui-content, .ui-btn {
+.ui-page {
     background: transparent;
 }
