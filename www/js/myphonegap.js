@@ -17,7 +17,13 @@ function onOnline() {
     startingApp();
 }
 
+
 function startingApp() {
+
+    $.support.cors = true;
+    $.mobile.pageLoadErrorMessageTheme = "c";
+    $.mobile.allowCrossDomainPages = true;
+
 	$("#goneOffline").popup("close");
 	$.mobile.loading('show');
 	$.mobile.changePage( "http://ola.avon.com.au/Login");
