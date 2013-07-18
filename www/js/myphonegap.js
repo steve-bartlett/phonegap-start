@@ -20,6 +20,7 @@ function onOnline() {
 
 function startingApp() {
 
+    // need to make sure jqm is loaded
     $.support.cors = true;
     $.mobile.pageLoadErrorMessageTheme = "c";
     $.mobile.allowCrossDomainPages = true;
