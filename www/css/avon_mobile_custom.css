@@ -51,6 +51,7 @@ input#Packs1, input#Packs2
     height: 20px;
 }
 
+/*
 @media all and (max-width: 320px) {
     body {
         background: url('../res/screen/android/screen-ldpi-portrait.png') no-repeat center center !important;
@@ -78,6 +79,7 @@ input#Packs1, input#Packs2
         background-attachment: fixed;
     }
 }
+*/
 
 /*
 .ui-page {
