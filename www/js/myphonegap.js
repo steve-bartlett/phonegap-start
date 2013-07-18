@@ -20,7 +20,7 @@ function onOnline() {
 function startingApp() {
 	$("#goneOffline").popup("close");
 	$.mobile.loading('show');
-	window.location = "https://ola.avon.com.au/Login";;
+	$.mobile.changePage( "http://bkvmsmisdev02/onlineappointments.public/Login");
 }
 
 

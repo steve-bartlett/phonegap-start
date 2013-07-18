@@ -1,7 +1,8 @@
-﻿$(window.document).bind('mobileinit', function () {
+$(window.document).bind('mobileinit', function () {
     $.support.cors = true;
     $.mobile.pageLoadErrorMessageTheme = "c";
     $.mobile.allowCrossDomainPages = true;
+    alert('called mobileinit');
 });
 
 
@@ -17,7 +18,7 @@ $(document).on('pageshow', function (event, ui) {
             });
         });
     });
-}); 
+});
 
 
 function myParseDate(input) {
@@ -101,7 +102,7 @@ function qasAddress(pagename) {
     $(pagename + ' #selectorlbl').hide();
 
     $(pagename + ' #addrfind').on("click", function () {
-        
+
         $.mobile.loading('show');
 
         var term = $(pagename + ' #addressTerm').val();
@@ -130,7 +131,7 @@ function useAddress(pageName, index) {
 
     if (id == "0")
         return;
-    
+
     $.getJSON(AppUrlSettings.qasFinalURL + "?id=" + id, function (data) {
 
         if (data != null) {
@@ -149,7 +150,7 @@ function useAddress(pageName, index) {
 
             $(pageName + " #FormatStreetName").val(data.FormatStreetName);
             $(pageName + " #divFormatAddress").append(data.FormatStreetName + ' ');
-            
+
             $(pageName + " #FormatCity").val(data.FormatCity);
             $(pageName + " #divFormatCity").html(data.FormatCity);
 
@@ -170,7 +171,7 @@ function useAddress(pageName, index) {
     }).error(function () {
         alert('Error looking up address ');
     });
-            
+
 }
 
 function DeliveryAddressVisibility(pagename) {
