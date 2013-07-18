@@ -20,7 +20,7 @@ function onOnline() {
 function startingApp() {
 	$("#goneOffline").popup("close");
 	$.mobile.loading('show');
-	$.mobile.changePage( "http://bkvmsmisdev02/onlineappointments.public/Login");
+	$.mobile.changePage( "http://ola.avon.com.au/Login");
 }
 
 
