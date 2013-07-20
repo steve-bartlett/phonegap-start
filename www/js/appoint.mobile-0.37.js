@@ -10,13 +10,18 @@ $(document).on('pageshow', function (event, ui) {
     $(function () {
         $('a').not('[href^="http"],[href^="https"],[href^="mailto:"],[href^="#"]').each(function () {
             $(this).attr('href', function (index, value) {
-                if (value.substr(0, 1) !== "/") {
-                    value = window.location.pathname + value;
-                }
-               // return "https://ola.avon.com.au" + value;
-                return "http://bkvmsmisdev02/" + value;
+
+                return "https://ola.avon.com.au" + value;
             });
         });
+
+	$('form').not('[action^="http"],[action^="https"]).each(function () {   $(this).attr('action', function (index, value) {     return "https://ola.avon.com.au" + value;  });   });
+        $('div[data-role="page"]').not('[data-url^="http"],[data-urln^="https"]).each(function () {   
+		$(this).attr('data-url', function (index, value) 
+		{     
+			return "https://ola.avon.com.au/" + value;  
+		});   
+	});
     });
 });
 
@@ -40,7 +45,7 @@ $(document).on('pageinit', '#appdet', function () {
 
     if ($('#appdet #AreaNumber').val() == "0") {
         $('#appdet #AreaNumber').val('Looking for District ....');
-        $.getJSON(AppUrlSettings.districtURl, function (data) {
+        $.getJSON(AppUrlSettings.districtURl + $('ID').val(), function (data) {
             if (data.District > 0) {
                 $('#appdet #AreaNumber').val(data.District);
             } else {

@@ -51,38 +51,3 @@ input#Packs1, input#Packs2
     height: 20px;
 }
 
-/*
-@media all and (max-width: 320px) {
-    body {
-        background: url('../res/screen/android/screen-ldpi-portrait.png') no-repeat center center !important;
-        background-attachment: fixed;
-    }
-}
-
-@media all and (min-width: 321px) and  (max-width: 480px) {
-    body {
-        background: url('../res/screen/android/screen-mdpi-portrait.png') no-repeat center center !important;
-        background-attachment: fixed;
-    }
-}
-
-@media all and (min-width: 481px) and  (max-width: 720px) {
-    body {
-        background: url('../res/screen/android/screen-hdpi-portrait.png') no-repeat center center !important;
-        background-attachment: fixed;
-    }
-}
-
-@media all and (min-width: 721px) {
-    body {
-        background: url('../res/screen/android/screen-xhdpi-portrait.png') no-repeat center center !important;
-        background-attachment: fixed;
-    }
-}
-*/
-
-/*
-.ui-page {
-    background: transparent;
-}
-*/
