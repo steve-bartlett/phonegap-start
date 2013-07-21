@@ -16,7 +16,7 @@ $(document).on('pageshow', function (event, ui) {
         });
 
 	$('form').not('[action^="http"],[action^="https"]).each(function () {   $(this).attr('action', function (index, value) {     return "https://ola.avon.com.au" + value;  });   });
-        $('div[data-role="page"]').not('[data-url^="http"],[data-urln^="https"]).each(function () {   
+        $('div[data-role="page"]').not('[data-url^="http"],[data-urln^="https"]').each(function () {   
 		$(this).attr('data-url', function (index, value) 
 		{     
 			return "https://ola.avon.com.au/" + value;  
