@@ -13,6 +13,7 @@ function onDeviceReady() {
 	isConnected();
 }
 
+
 function onOnline() {
     startingApp();
 }
@@ -24,6 +25,7 @@ function startingApp() {
     $.support.cors = true;
     $.mobile.pageLoadErrorMessageTheme = "c";
     $.mobile.allowCrossDomainPages = true;
+    $.mobile.pushStateEnabled = false;
 
 	$("#goneOffline").popup("close");
 	$.mobile.loading('show');
