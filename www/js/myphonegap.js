@@ -25,11 +25,11 @@ function startingApp() {
     $.support.cors = true;
     $.mobile.pageLoadErrorMessageTheme = "c";
     $.mobile.allowCrossDomainPages = true;
-    $.mobile.pushStateEnabled = false;
 
 	$("#goneOffline").popup("close");
 	$.mobile.loading('show');
-	$.mobile.changePage( "http://ola.avon.com.au/Login");
+    // $.mobile.changePage( "http://ola.avon.com.au/Login");
+	navigator.app.loadUrl = "http://ola.avon.com.au/Login";
 }
 
 
