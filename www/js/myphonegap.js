@@ -13,23 +13,14 @@ function onDeviceReady() {
 	isConnected();
 }
 
-
 function onOnline() {
     startingApp();
 }
 
-
 function startingApp() {
-
-    // need to make sure jqm is loaded
-    $.support.cors = true;
-    $.mobile.pageLoadErrorMessageTheme = "c";
-    $.mobile.allowCrossDomainPages = true;
-
 	$("#goneOffline").popup("close");
 	$.mobile.loading('show');
-    // $.mobile.changePage( "http://ola.avon.com.au/Login");
-	window.location = "http://ola.avon.com.au/Login";
+	window.location = "https://ola.avon.com.au/Login";;
 }
 
 
